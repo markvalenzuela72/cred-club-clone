@@ -1,103 +1,170 @@
+import ScrollToTop from "@/components/ScrollToTop";
+import CanvasScroll from "@/components/CanvasScroll";
+import VideoLockScroll from "@/components/VideoLockScroll";
+import VideoResponsive from "@/components/VideoResponsive";
 import Image from "next/image";
+
+const assetBaseURL = "https://web-images.credcdn.in/v2/_next/assets/";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main>
+      {/* TODO: Fix Late */}
+      <ScrollToTop />
+      <VideoResponsive
+        posterDesktop={`${assetBaseURL}images/cards/desktop/hero-fold/hero-fold-desktop-poster.jpg`}
+        posterMobile={`${assetBaseURL}images/cards/mobile/hero-fold/hero-fold-mobile-poster.jpg`}
+        videoSrcDesktop={`${assetBaseURL}videos/cards/desktop/hero-fold/hero-fold-desktop-video.mp4?tr=q-95`}
+        videoSrcMobile={`${assetBaseURL}videos/cards/mobile/hero-fold/hero-fold-mobile.mp4?tr=q-95`}
+      />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="px-4 py-4 md:px-32 md:py-24 w-full h-screen flex justify-center">
+        <div className="flex items-center justify-center flex-col">
+          <p className="text-gray-600 uppercase font-semibold text-lg mb-2 text-center">
+            credit card management. reimagined.
+          </p>
+          <h1 className="block font-extrabold text-5xl md:text-7xl text-center mb-6 whitespace-pre-line">
+            everything you need.{"\n"}
+            nothing you don&apos;t.
+          </h1>
+
+          <p className="text-center text-xl leading-8 mb-5 whitespace-pre-line tracking-wide">
+            welcome to a credit card experience designed to feel like second
+            nature.{"\n"}
+            like muscle memory. life&apos;s logistics demand enough of your
+            time, effort, and{"\n"}
+            attention—managing your credit cards shouldn&apos;t add to the list.
+          </p>
+
+          <p className="text-center text-xl leading-8">
+            you can put your admin duties to rest. for good.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      <VideoLockScroll
+        posterDesktop={`${assetBaseURL}images/cards/desktop/hero-fold/hero-fold-desktop-poster.jpg`}
+        posterMobile={`${assetBaseURL}images/cards/mobile/hero-fold/hero-fold-mobile-poster.jpg?tr=orig`}
+        videoSrcDesktop={`${assetBaseURL}videos/cards/desktop/multi-card/multi-card-desktop-video.mp4?tr=q-95`}
+        videoSrcMobile={`${assetBaseURL}videos/cards/mobile/multi-card/multi-card-mobile-video.mp4?tr=q-95`}
+        viewPort={0}
+      />
+      <CanvasScroll
+        assetImagesUrl={`${assetBaseURL}images/cards/desktop/unbilled/seq_v3/unbilled-`}
+        frameCount={149}
+      />
+
+      <VideoLockScroll
+        posterDesktop={`${assetBaseURL}images/cards/desktop/single-card/single-card-fold-desktop-poster.jpg`}
+        posterMobile={`${assetBaseURL}images/cards/mobile/single-card/single-card-fold-mobile-poster.jpg?tr=orig`}
+        videoSrcDesktop={`${assetBaseURL}videos/cards/desktop/single-card/single-card.mp4?tr=q-95`}
+        videoSrcMobile={`${assetBaseURL}videos/cards/mobile/single-card/single-card-fold-mobile.mp4?tr=q-95`}
+        viewPort={5000}
+      />
+      <section className="px-4 py-8 md:px-32 md:py-24 w-full h-screen flex flex-col gap-6">
+        <h1 className="block font-extrabold text-5xl md:text-7xl  mb-6 whitespace-pre-line">
+          every touch is {"\n"}
+          pure power.
+        </h1>
+        <div className="flex gap-4 flex-col md:flex-row">
+          <div className="flex flex-col gap-3">
+            <video
+              autoPlay
+              poster={`${assetBaseURL}images/cards/desktop/interactions/swipe-fallback.jpg?tr=orig`}
+              loop
+              muted={true}
+            >
+              <source
+                src={`${assetBaseURL}videos/cards/desktop/interactions/swipe.mp4?tr=q-95`}
+                type="video/mp4"
+              />
+            </video>
+            <div className="flex gap-2 items-center ">
+              <Image
+                src={`${assetBaseURL}images/cards/swipe-left.png?tr=orig`}
+                alt="icon"
+                width={32}
+                height={32}
+              />
+              <p className="font-bold">
+                SWIPE LEFT{" "}
+                <span className="font-normal">
+                  on any card to manage payment history, card offers, and more.
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3">
+            <video
+              autoPlay
+              poster={`${assetBaseURL}images/cards/desktop/interactions/long-press-fallback.jpg?tr=orig`}
+              loop
+              muted={true}
+            >
+              <source
+                src={`${assetBaseURL}videos/cards/desktop/interactions/long-press.mp4?tr=q-95`}
+                type="video/mp4"
+              />
+            </video>
+            <div className="flex gap-2 items-center ">
+              <Image
+                src={`${assetBaseURL}images/cards/tap-hold.png?tr=orig`}
+                alt="icon"
+                width={32}
+                height={32}
+              />
+              <p className="font-bold">
+                PRESS AND HOLD{" "}
+                <span className="font-normal">
+                  a card to view balances, usage limits, recent activity and
+                  other key details.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <video
+              autoPlay
+              poster={`${assetBaseURL}images/cards/desktop/interactions/smart-nav-fallback.jpg?tr=orig`}
+              loop
+              muted={true}
+            >
+              <source
+                src={`${assetBaseURL}videos/cards/desktop/interactions/smart-nav.mp4?tr=q-95`}
+                type="video/mp4"
+              />
+            </video>
+            <div className="flex gap-2 items-center ">
+              <Image
+                src={`${assetBaseURL}images/cards/smart-nav.png?tr=orig`}
+                alt="icon"
+                width={32}
+                height={32}
+              />
+              <p className="font-bold">
+                SMART NAVIGATION{" "}
+                <span className="font-normal">
+                  a card to view balances, usage limits, recent activity and
+                  other key details.
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <CanvasScroll
+        assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
+        frameCount={194}
+      />
+      {/*<CanvasScroll
+        assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
+        frameCount={194}
+      />
+      <CanvasScroll
+        assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
+        frameCount={194}
+      /> */}
+    </main>
   );
 }
