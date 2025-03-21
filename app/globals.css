@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+@layer base {
+  @font-face {
+    font-family: "gilroy-bold";
+    src: url("/fonts/Gilroy-Bold.woff2") format("woff2"),
+      url("/fonts/Gilroy-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "gilroy-semibold";
+    src: url("/fonts/Gilroy-SemiBold.woff2") format("woff2"),
+      url("/fonts/Gilroy-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "gilroy-medium";
+    src: url("/fonts/Gilroy-Medium.woff2") format("woff2"),
+      url("/fonts/Gilroy-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "gilroy-regular";
+    src: url("/fonts/Gilroy-Regular.woff2") format("woff2"),
+      url("/fonts/Gilroy-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "denton";
+    src: url("/fonts/Denton-ExtraBold.woff2") format("woff2"),
+      url("/fonts/Denton-ExtraBold.woff") format("woff");
+    font-weight: 800;
+    font-display: auto;
+    font-style: normal;
+    font-stretch: normal;
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,10 +48,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -24,7 +61,7 @@
 body {
   background: var(--background);
   color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "gilroy-regular";
 }
 canvas {
   overflow-clip-margin: content-box;

@@ -9,11 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 const CanvasScroll = ({
   assetImagesUrl,
   frameCount,
+  canvasHeight,
 }: {
   assetImagesUrl: string;
   frameCount: number;
+  canvasHeight: number;
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const scrollSectionRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
@@ -54,31 +57,53 @@ const CanvasScroll = ({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
-
-    gsap.to(
-      {},
-      {
-        scrollTrigger: {
-          id: "canvasTrigger",
-          trigger: canvas,
-          start: "top top",
-          scrub: 1,
-          pin: true,
-          end: "bottom+=4000px",
-          // markers: true, // Debugging
-          onUpdate: (self) => {
-            const index = Math.min(
-              images.length - 1,
-              Math.floor(self.progress * images.length)
-            );
-            drawImageOnCanvas(index);
-          },
-        },
-      }
-    );
+    ScrollTrigger.create({
+      trigger: scrollSectionRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      pin: canvas,
+      // markers: true,
+      onUpdate: (self) => {
+        const index = Math.min(
+          images.length - 1,
+          Math.floor(self.progress * images.length)
+        );
+        drawImageOnCanvas(index);
+      },
+    });
+    // gsap.to(
+    //   {},
+    //   {
+    //     scrollTrigger: {
+    //       id: "canvasTrigger",
+    //       trigger: scrollSectionRef.current,
+    //       start: "top top",
+    //       scrub: 1,
+    //       pin: canvas,
+    //       end: "bottom+=4000px",
+    //       preventOverlaps: true,
+    // markers: true, // Debugging
+    //       onUpdate: (self) => {
+    //         const index = Math.min(
+    //           images.length - 1,
+    //           Math.floor(self.progress * images.length)
+    //         );
+    //         drawImageOnCanvas(index);
+    //       },
+    //     },
+    //   }
+    // );
   }, [images]);
 
-  return <canvas ref={canvasRef} className="w-full" />;
+  return (
+    <div
+      ref={scrollSectionRef}
+      className={`scroll-section w-full]`}
+      style={{ height: `${canvasHeight}vh` }}
+    >
+      <canvas ref={canvasRef} className="w-full" />;
+    </div>
+  );
 };
 
 export default CanvasScroll;

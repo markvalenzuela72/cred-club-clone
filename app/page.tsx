@@ -3,8 +3,8 @@ import CanvasScroll from "@/components/CanvasScroll";
 import VideoLockScroll from "@/components/VideoLockScroll";
 import VideoResponsive from "@/components/VideoResponsive";
 import Image from "next/image";
-
-const assetBaseURL = "https://web-images.credcdn.in/v2/_next/assets/";
+import RevealingQrCode from "@/components/RevealingQrCode";
+import { assetBaseURL } from "./layout";
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
           <p className="text-gray-600 uppercase font-semibold text-lg mb-2 text-center">
             credit card management. reimagined.
           </p>
-          <h1 className="block font-extrabold text-5xl md:text-7xl text-center mb-6 whitespace-pre-line">
+          <h1 className="font-[denton] block font-extrabold text-5xl md:text-7xl text-center mb-6 whitespace-pre-line">
             everything you need.{"\n"}
             nothing you don&apos;t.
           </h1>
@@ -47,11 +47,11 @@ export default function Home() {
         posterMobile={`${assetBaseURL}images/cards/mobile/hero-fold/hero-fold-mobile-poster.jpg?tr=orig`}
         videoSrcDesktop={`${assetBaseURL}videos/cards/desktop/multi-card/multi-card-desktop-video.mp4?tr=q-95`}
         videoSrcMobile={`${assetBaseURL}videos/cards/mobile/multi-card/multi-card-mobile-video.mp4?tr=q-95`}
-        viewPort={0}
       />
       <CanvasScroll
         assetImagesUrl={`${assetBaseURL}images/cards/desktop/unbilled/seq_v3/unbilled-`}
         frameCount={149}
+        canvasHeight={450}
       />
 
       <VideoLockScroll
@@ -59,10 +59,9 @@ export default function Home() {
         posterMobile={`${assetBaseURL}images/cards/mobile/single-card/single-card-fold-mobile-poster.jpg?tr=orig`}
         videoSrcDesktop={`${assetBaseURL}videos/cards/desktop/single-card/single-card.mp4?tr=q-95`}
         videoSrcMobile={`${assetBaseURL}videos/cards/mobile/single-card/single-card-fold-mobile.mp4?tr=q-95`}
-        viewPort={5000}
       />
       <section className="px-4 py-8 md:px-32 md:py-24 w-full h-screen flex flex-col gap-6">
-        <h1 className="block font-extrabold text-5xl md:text-7xl  mb-6 whitespace-pre-line">
+        <h1 className="font-[denton] block font-extrabold text-5xl md:text-7xl  mb-6 whitespace-pre-line">
           every touch is {"\n"}
           pure power.
         </h1>
@@ -156,15 +155,42 @@ export default function Home() {
       <CanvasScroll
         assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
         frameCount={194}
-      />
-      {/*<CanvasScroll
-        assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
-        frameCount={194}
+        canvasHeight={700}
       />
       <CanvasScroll
-        assetImagesUrl={`${assetBaseURL}images/cards/desktop/smart-statements/ss_seq/ss-`}
-        frameCount={194}
-      /> */}
+        assetImagesUrl={`${assetBaseURL}images/cards/desktop/perks/seq_v2/perks-`}
+        frameCount={325}
+        canvasHeight={770}
+      />
+      <section className="px-4 py-8 md:px-32 md:py-24 w-full h-screen flex flex-col gap-6  justify-center items-center">
+        <hr className="border border-black" />
+        <div className="flex flex-col md:flex-row gap-8 justify-center align-center">
+          <div className="w-full md:w-[60%]">
+            <Image
+              src={`${assetBaseURL}images/cards/lock.png?tr=orig`}
+              alt="icon"
+              width={70}
+              height={70}
+            />
+            <h1 className="font-[denton] block font-extrabold text-5xl md:text-7xl  mb-6 whitespace-pre-line max-w-[70%]">
+              the only thing we do with your data is protect it.
+            </h1>
+          </div>
+          <div className="w-full md:w-[40%]">
+            <p className="text-xl leading-10 mb-5 whitespace-pre-line tracking-wide min-w-[320px]">
+              at CRED, security isn&apos;t an afterthought. it&apos;s built into
+              everything we do. your data is encrypted, monitored, and protected
+              at every step. we follow PCI DSS v4.0, ISO 27001, and RBI
+              guidelines, ensuring top-tier safety standards. your card data is
+              never stored—tokenization and masking keep your details secure.
+            </p>
+            <p className="text-xl leading-10 mb-5 whitespace-pre-line tracking-wide min-w-[320px]">
+              there are no gaps, because we didn&apos;t leave any.
+            </p>
+          </div>
+        </div>
+      </section>
+      <RevealingQrCode assetBaseURL={assetBaseURL} />
     </main>
   );
 }
